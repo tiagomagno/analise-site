@@ -1,6 +1,6 @@
 # analise-site
 
-Skill do Claude para analisar um site por completo e gerar um relatório para o cliente: nota geral, problemas priorizados, o que está bom e o que não pôde ser verificado.
+Skill de análise de sites (formato `SKILL.md`), testada no Claude Code. Analisa um site por completo e gera um relatório para o cliente: nota geral, problemas priorizados, o que está bom e o que não pôde ser verificado. Os scripts em Python funcionam sozinhos; o orquestrador foi escrito e testado só para o Claude Code.
 
 A análise é **somente leitura e passiva**: não altera o site nem o código, não envia formulários (a menos que o dono autorize) e não faz teste de ataque.
 

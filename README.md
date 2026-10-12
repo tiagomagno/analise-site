@@ -1,12 +1,14 @@
 # analise-site
 
-Skill para o [Claude Code](https://claude.com/claude-code) que analisa um site por completo e entrega um relatório em HTML e PDF.
+Skill de análise de sites, no formato `SKILL.md`, **testada no [Claude Code](https://claude.com/claude-code)**. Analisa um site por completo e entrega um relatório em HTML e PDF.
+
+> **Compatibilidade:** os scripts de coleta, consolidação e relatório (Python) funcionam sozinhos, em qualquer ambiente. Os prompts dos agentes (`analise-site/agents/`) e o formato de saída (`analise-site/schemas/`) são texto e podem ser adaptados a outras IAs, mas o orquestrador (`SKILL.md`) foi escrito e testado só para o Claude Code. Ainda não foi testado em outras ferramentas.
 
 Cobre segurança, privacidade e LGPD, desempenho, SEO, acessibilidade, design, texto, conversão, medição, base técnica e negócio. Um agente por segmento trabalha em paralelo sobre os mesmos dados coletados, um verificador independente confere os achados mais graves, e o resultado são só dois arquivos: `relatorio.html` e `relatorio.pdf`.
 
 A análise é somente leitura: não altera o site e não envia formulários sem autorização. Não precisa de chave de API nem de conta.
 
-## Instalar
+## Instalar (Claude Code)
 
 Requisitos: Python 3.9+ e internet. Node.js 18+ é recomendado.
 
