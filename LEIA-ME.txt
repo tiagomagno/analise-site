@@ -1,0 +1,47 @@
+ANALISE-SITE 1.0
+================
+
+O que é
+-------
+Uma skill para o Claude Code que analisa um site por completo (segurança, privacidade e LGPD, desempenho, SEO,
+acessibilidade, design, texto, conversão, medição, base técnica e negócio) e entrega um relatório em HTML e PDF.
+
+Você recebe só dois arquivos: relatorio.html e relatorio.pdf.
+
+Como instalar (3 passos)
+------------------------
+1. Extraia este .zip inteiro numa pasta qualquer.
+2. Abra um terminal nessa pasta e rode:
+
+       python instalar.py
+
+   (no Windows, se aparecer "Python não foi encontrado", instale o Python em https://python.org e tente de novo)
+
+3. Abra o Claude Code e peça:
+
+       analisa o site https://exemplo.com.br
+
+O instalador copia a skill para ~/.claude/skills/analise-site e instala os pacotes que faltarem
+(playwright e o navegador Chromium dele, jsonschema). Para instalar só em um projeto:
+
+       python instalar.py --projeto C:\caminho\do\projeto
+
+O que precisa estar no computador
+---------------------------------
+- Python 3.9 ou mais novo ............ obrigatório
+- Internet ........................... obrigatório
+- Node.js 18 ou mais novo ............ recomendado (Lighthouse local e acessibilidade automática).
+                                        Windows: winget install OpenJS.NodeJS.LTS
+                                        ou baixe em https://nodejs.org
+O instalador confere tudo isso e diz o que falta. Para conferir de novo a qualquer momento:
+
+       python ~/.claude/skills/analise-site/scripts/preparar.py
+
+Observações
+-----------
+- A análise é somente leitura: não altera o site e não envia formulários sem autorização.
+- Não precisa de chave de API nem de conta. O desempenho é medido pelo site do PageSpeed do Google,
+  aberto num navegador automatizado.
+- Se o seu antivírus atrapalhar alguma medição, a skill avisa. Ela nunca mexe no antivírus: se quiser, pause-o
+  por conta própria e peça uma nova análise daquele ponto.
+- Detalhes de cada análise e dos métodos: analise-site/README.md

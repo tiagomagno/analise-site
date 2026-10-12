@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.bak
+dist/
+
+# resultados de análises feitas durante o desenvolvimento
+analise-*-20*/

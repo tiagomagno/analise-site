@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "analise-site/achados.schema.json",
+  "title": "Saída de um agente de segmento",
+  "type": "object",
+  "required": ["segmento", "modo", "nota", "resumo", "cobertura", "pontos_fortes", "achados"],
+  "properties": {
+    "segmento": {
+      "type": "string",
+      "enum": ["seguranca", "privacidade", "desempenho", "seo", "acessibilidade", "design", "copy", "conversao", "analytics", "arquitetura", "negocio"]
+    },
+    "modo": { "type": "string", "enum": ["url", "codigo", "hibrido"] },
+    "nota": { "type": ["integer", "null"], "minimum": 0, "maximum": 100, "description": "Nota do segmento de 0 a 100. null quando o segmento não se aplica." },
+    "resumo": { "type": "string", "description": "Até 5 linhas, em português, para o leitor do relatório." },
+    "cobertura": {
+      "type": "object",
+      "required": ["verificado", "nao_verificado", "nao_aplicavel"],
+      "properties": {
+        "verificado": { "type": "array", "items": { "type": "string" } },
+        "nao_verificado": { "type": "array", "items": { "type": "string" }, "description": "O que ficou sem checar e por quê." },
+        "nao_aplicavel": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "pontos_fortes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["titulo", "evidencia"],
+        "properties": {
+          "check_id": { "type": "string" },
+          "titulo": { "type": "string" },
+          "evidencia": { "type": "string" }
+        }
+      }
+    },
+    "achados": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "check_id", "titulo", "severidade", "confianca", "evidencia", "impacto_usuario", "impacto_negocio", "recomendacao", "esforco"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[A-Z]{3}-[0-9]{3}$", "description": "Prefixo do segmento + número. Ex.: SEG-001" },
+          "check_id": { "type": "string", "pattern": "^[0-9]{2}\\.[0-9]{2}$", "description": "ID da linha na matriz de referência. Ex.: 01.12" },
+          "titulo": { "type": "string" },
+          "categoria": { "type": ["string", "null"] },
+          "severidade": { "type": "string", "enum": ["critica", "alta", "media", "baixa", "info"] },
+          "confianca": { "type": "string", "enum": ["verificado", "suspeita"] },
+          "evidencia": {
+            "type": "object",
+            "properties": {
+              "url": { "type": ["string", "null"] },
+              "arquivo": { "type": ["string", "null"] },
+              "linhas": { "type": ["string", "null"] },
+              "trecho": { "type": ["string", "null"] },
+              "metrica": { "type": ["string", "null"] },
+              "screenshot": { "type": ["string", "null"], "description": "Caminho relativo à pasta da análise. Ex.: coleta/paginas/home/mobile.png" }
+            }
+          },
+          "impacto_usuario": { "type": "string" },
+          "impacto_negocio": { "type": "string" },
+          "recomendacao": { "type": "string" },
+          "esforco": { "type": "string", "enum": ["P", "M", "G"], "description": "P = horas, M = dias, G = semanas" },
+          "referencia": { "type": ["string", "null"], "description": "Norma ou fonte. Ex.: OWASP A01:2021, WCAG 2.4.7, LGPD art. 8" },
+          "segmentos_relacionados": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "extras": {
+      "type": "object",
+      "description": "Dados próprios do segmento que aparecem no relatório. Ex.: concorrentes, perfil no Google Meu Negócio, métricas de Core Web Vitals."
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "_comentario": "Peso de cada segmento na nota geral, por tipo de site. Cada coluna soma 100. Negócio entra com peso 0: aparece no relatório, mas não pesa na nota (exceto pelo teto de reputação). Ajuste à vontade.",
+  "tipos": {
+    "institucional": { "seguranca": 10, "privacidade": 5, "desempenho": 15, "seo": 20, "acessibilidade": 10, "design": 15, "copy": 10, "conversao": 5, "analytics": 5, "arquitetura": 5, "negocio": 0 },
+    "landing_page":  { "seguranca": 5,  "privacidade": 10, "desempenho": 20, "seo": 5,  "acessibilidade": 5,  "design": 15, "copy": 15, "conversao": 20, "analytics": 5, "arquitetura": 0, "negocio": 0 },
+    "ecommerce":     { "seguranca": 20, "privacidade": 10, "desempenho": 20, "seo": 10, "acessibilidade": 10, "design": 10, "copy": 5,  "conversao": 10, "analytics": 5, "arquitetura": 0, "negocio": 0 },
+    "saas_sistema":  { "seguranca": 25, "privacidade": 10, "desempenho": 10, "seo": 5,  "acessibilidade": 10, "design": 15, "copy": 5,  "conversao": 5,  "analytics": 0, "arquitetura": 15, "negocio": 0 },
+    "blog_portal":   { "seguranca": 5,  "privacidade": 5,  "desempenho": 15, "seo": 30, "acessibilidade": 10, "design": 10, "copy": 15, "conversao": 0,  "analytics": 5, "arquitetura": 5, "negocio": 0 }
+  },
+  "tetos": {
+    "_comentario": "Limites para a nota geral, aplicados depois da média ponderada.",
+    "critico_seguranca_ou_privacidade": 50,
+    "dominio_marcado_como_perigoso": 30
+  },
+  "faixas": [
+    { "min": 90, "rotulo": "Excelente" },
+    { "min": 75, "rotulo": "Bom" },
+    { "min": 50, "rotulo": "Precisa melhorar" },
+    { "min": 0,  "rotulo": "Crítico" }
+  ]
+}
