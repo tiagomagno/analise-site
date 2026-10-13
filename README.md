@@ -47,3 +47,7 @@ LEIA-ME.txt              instruções curtas que vão dentro do .zip
 4. Para distribuir: `python empacotar.py --versao 1.1` gera `dist/analise-site-1.1.zip`.
 
 Mantenha o repositório como fonte da verdade: não edite direto em `~/.claude/skills/analise-site`, senão as mudanças se perdem na próxima instalação.
+
+## Licença
+
+MIT. Veja o arquivo [LICENSE](LICENSE).
